@@ -1,0 +1,13 @@
+<h1>Hello from All_Blogs</h1>
+
+<h2>I've written {{ blog.count }} blog{{ blogs.count|pluralize }}</h2>
+
+{% for blog in blogs %}
+
+<a href="{% url 'blog:details' blog.id %}">
+	<h3>{{ blog.title }}</h3>
+</a>
+<h5>{{ blog.date|date:'d M Y' }}</h5>
+<p>{{ blog.description|striptags|truncatechars:100 }}</p>
+
+{% endfor %}
